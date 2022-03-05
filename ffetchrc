@@ -1,0 +1,31 @@
+# ffetch configuration file
+
+# If you want to set a customized logo, you may do it here.
+#dslogo=("         "
+#		"         "
+#		"         "
+#		"         "
+#		"         "
+#		"         ")
+
+# You may set a different color here.
+#dscolor="\e[0;0m"
+
+# Change distro name, in case ffetch doesn't pick it up.
+# Distros with pre-made logos:
+# Arch, Gentoo, Debian, donut.gq Recovery Disk, openSUSE, Fedora, Linux Mint,
+# MX Linux
+# ffetch also has a fallback penguin icon, if it can't find a pre-made icon.
+#NAME="Distribution Name"
+
+# If you'd like the colored dots at the bottom of the fetch to be removed, you
+# may do so here.
+# By default, they are enabled.
+#colorsoff=1
+
+# Argument.
+# If you want to not have a logo, set this to nologo.
+# If you want to have no fetch and just the logo, set this to nofetch.
+# NOTE: You can also run ffetch with, for example, `arg="nologo" ffetch` to
+# run it with this setting without having to edit this file first.
+#arg=""
