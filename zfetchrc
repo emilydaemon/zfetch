@@ -1,12 +1,12 @@
 # zfetch configuration file
 
 # If you want to set a customized logo, you may do it here.
-#dslogo=("         "
-#		"         "
-#		"         "
-#		"         "
-#		"         "
-#		"         ")
+#dslogo1="         "
+#dslogo2="         "
+#dslogo3="         "
+#dslogo4="         "
+#dslogo5="         "
+#dslogo6="         "
 
 # You may set a different color here.
 #dscolor="\e[0;0m"
