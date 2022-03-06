@@ -119,9 +119,6 @@ if [ "$colorsoff" = "" ]; then
 	colorsoff=0
 fi
 
-#. /etc/zfetchrc 2> /dev/null
-#. ~/.zfetchrc 2> /dev/null
-
 touch ~/.zfetchrc # If ~/.zfetchrc doesn't exist, /bin/sh as bash will just exit.
 . ~/.zfetchrc 2> /dev/null || . /etc/zfetchrc 2> /dev/null
 
