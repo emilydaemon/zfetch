@@ -111,6 +111,7 @@ if [ "$colorsoff" = "" ]; then
 fi
 
 . ~/.zfetchrc 2> /dev/null
+. /etc/zfetchrc 2> /dev/null
 
 # command line parameters
 if [ "$arg" = "" ]; then
