@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#    ffetch - a fast but pretty fetch script
+#    zfetch - a fast but pretty fetch script
 #    Copyright (C) 2022 jornmann
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -110,7 +110,7 @@ if [ "$colorsoff" = "" ]; then
 	colorsoff=0
 fi
 
-. ~/.ffetchrc 2> /dev/null
+. ~/.zfetchrc 2> /dev/null
 
 # command line parameters
 if [ "$arg" = "" ]; then
