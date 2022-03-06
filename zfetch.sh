@@ -39,6 +39,14 @@ if [[ $NAME = *"Arch"* ]]; then
 			" /_--_\\  "
 			"         "
 			"         ")
+elif [[ $NAME = *"Artix"* ]]; then
+	dscolor="\e[0;36m" # cyan
+	dslogo=("         "
+			"   /\\    "
+			"  /'-_   "
+			" /_-'_\\  "
+			"         "
+			"         ")
 elif [[ $NAME == *"Gentoo"* ]]; then
 	dscolor="\e[0;35m" # purple
 	dslogo=("         "
