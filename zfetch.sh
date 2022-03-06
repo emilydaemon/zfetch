@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #    zfetch - a fast but pretty fetch script
 #    Copyright (C) 2022 jornmann
@@ -27,99 +27,100 @@ if [ "$NAME" = "" ]; then
 fi
 
 # nc = no color
-nc="\e[0m"
+nc="\033[0m"
 
 # logos
 
-if [[ $NAME = *"Arch"* ]]; then
-	dscolor="\e[0;36m" # cyan
-	dslogo=("         "
-			"   /\\    "
-			"  /' \\   "
-			" /_--_\\  "
-			"         "
-			"         ")
-elif [[ $NAME = *"Artix"* ]]; then
-	dscolor="\e[0;36m" # cyan
-	dslogo=("         "
-			"   /\\    "
-			"  /'-_   "
-			" /_-'_\\  "
-			"         "
-			"         ")
-elif [[ $NAME == *"Gentoo"* ]]; then
-	dscolor="\e[0;35m" # purple
-	dslogo=("         "
-			"   ---   "
-			"  \\ 0 \\  "
-			"  /__/   "
-			"         "
-			"         ")
-elif [[ $NAME == *"Debian"* ]]; then
-	dscolor="\e[0;31m" # red
-	dslogo=("         "
-			"   -^-   "
-			"  ( @,)  "
-			"  '-_    "
-			"         "
-			"         ")
-elif [[ $NAME == *"donut"* ]]; then
-	dscolor="\e[0;36m" # red
-	dslogo=("   \$\$\$    "
-			" \$##=##\$  "
-			"!!:. .:!! "
-			" \$##@##\$  "
-			"   \$\$\$    "
-			"          ")
-elif [[ $NAME == *"openSUSE"* ]]; then
-	dscolor="\e[0;32m" # green
-	dslogo=("         "
-			"    __   "
-			"  /~_')  "
-			"  @' '   "
-			"         "
-			"         ")
-elif [[ $NAME == *"Fedora"* ]]; then
-	dscolor="\e[0;34m" # blue
-	dslogo=("         "
-			"   /'')  "
-			" .-''-.  "
-			" '-..-'  "
-			" (__/    "
-			"         ")
-elif [[ $NAME == *"Mint"* ]]; then
-	dscolor="\e[0;32m" # blue
-	dslogo=("         "
-			" || -.-  "
-			" ||_|||  "
-			" \\____/  "
-			"         "
-			"         ")
-elif [[ $NAME == *"MX"* ]]; then
-	dscolor="\e[0;37m" # white
-	dslogo=("         "
-			"   \\/    "
-			"   /\\    "
-			"  /\\ \\   "
-			" /__\\/\\  "
-			"         ")
+if echo $NAME | grep -q 'Arch'; then
+	dscolor="\033[0;36m" # cyan
+	dslogo1="         "
+	dslogo2="   /\\    "
+	dslogo3="  /' \\   "
+	dslogo4=" /_--_\\  "
+	dslogo5="         "
+	dslogo6="         "
+elif echo $NAME | grep -q 'Artix'; then
+	dscolor="\033[0;36m" # cyan
+	dslogo1="         "
+	dslogo2="   /\\    "
+	dslogo3="  /'-_   "
+	dslogo4=" /_-'_\\  "
+	dslogo5="         "
+	dslogo6="         "
+elif echo $NAME | grep -q 'Gentoo'; then
+	dscolor="\033[0;35m" # purple
+	dslogo1="         "
+	dslogo2="   ---   "
+	dslogo3="  \\ 0 \\  "
+	dslogo4="  /__/   "
+	dslogo5="         "
+	dslogo6="         "
+elif echo $NAME | grep -q 'Debian'; then
+	dscolor="\033[0;31m" # red
+	dslogo1="         "
+	dslogo2="   -^-   "
+	dslogo3="  ( @,)  "
+	dslogo4="  '-_    "
+	dslogo5="         "
+	dslogo6="         "
+elif echo $NAME | grep -q 'donut'; then
+	dscolor="\033[0;36m" # red
+	dslogo1="   \$\$\$    "
+	dslogo2=" \$##=##\$  "
+	dslogo3="!!:. .:!! "
+	dslogo4=" \$##@##\$  "
+	dslogo5="   \$\$\$    "
+	dslogo6="          "
+elif echo $NAME | grep -q 'openSUSE'; then
+	dscolor="\033[0;32m" # green
+	dslogo1="         "
+	dslogo2="    __   "
+	dslogo3="  /~_')  "
+	dslogo4="  @' '   "
+	dslogo5="         "
+	dslogo6="         "
+elif echo $NAME | grep -q 'Fedora'; then
+	dscolor="\033[0;34m" # blue
+	dslogo1="         "
+	dslogo2="   /'')  "
+	dslogo3=" .-''-.  "
+	dslogo4=" '-..-'  "
+	dslogo5=" (__/    "
+	dslogo6="         "
+elif echo $NAME | grep -q 'Mint'; then
+	dscolor="\033[0;32m" # blue
+	dslogo1="         "
+	dslogo2=" || -.-  "
+	dslogo3=" ||_|||  "
+	dslogo4=" \\____/  "
+	dslogo5="         "
+	dslogo6="         "
+elif echo $NAME | grep -q 'MX'; then
+	dscolor="\033[0;37m" # white
+	dslogo1="         "
+	dslogo2="   \\/    "
+	dslogo3="   /\\    "
+	dslogo4="  /\\ \\   "
+	dslogo5=" /__\\/\\  "
+	dslogo6="         "
 else
-	dscolor="\e[0;37m" # white
-	dslogo=("         "
-			"  ('' )  "
-			"  |() |  "
-			"  (^(^)  "
-			"         "
-			"         ")
+	dscolor="\033[0;37m" # white
+	dslogo1="         "
+	dslogo2="  ('' )  "
+	dslogo3="  |() |  "
+	dslogo4="  (^(^)  "
+	dslogo5="         "
+	dslogo6="         "
 fi
+
 
 # source the config file
 if [ "$colorsoff" = "" ]; then
 	colorsoff=0
 fi
 
-. /etc/zfetchrc 2> /dev/null
-. ~/.zfetchrc 2> /dev/null
+touch ~/.zfetchrc # If ~/.zfetchrc doesn't exist, /bin/sh as bash will just exit.
+. ~/.zfetchrc 2> /dev/null || . /etc/zfetchrc 2> /dev/null
 
 # command line parameters
 if [ "$arg" = "" ]; then
@@ -127,23 +128,23 @@ if [ "$arg" = "" ]; then
 elif [ "$arg" = "nologo" ]; then
 	unset dslogo
 elif [ "$arg" = "nofetch" ]; then
-	printf "${dscolor}${dslogo[0]}\n${dslogo[1]}\n${dslogo[2]}\n${dslogo[3]}\n${dslogo[4]}\n${dslogo[5]}\n${nc}"
+	printf "${dscolor}${dslogo1}\n${dslogo2}\n${dslogo3}\n${dslogo4}\n${dslogo5}\n${dslogo6}\n${nc}"
 	exit
 fi
 
 # the meat and potatoes, actual fetch
 
-host=$(</proc/sys/kernel/hostname)
-kernel=$(</proc/version sed "s/version // ; s/ (.*//")
+host=$(cat /proc/sys/kernel/hostname)
+kernel=$(sed "s/version // ; s/ (.*//" /proc/version)
 uptime=$(uptime -p | sed "s/up //")
 shell=$(printf "$SHELL" | sed "s/\/bin\///")
 
-printf "${dscolor}${dslogo[0]}$USER@$host\n"
-printf "${dscolor}${dslogo[1]}OS     ${nc} $NAME\n"
-printf "${dscolor}${dslogo[2]}Kernel ${nc} $kernel\n"
-printf "${dscolor}${dslogo[3]}Uptime ${nc} $uptime\n"
-printf "${dscolor}${dslogo[4]}Shell  ${nc} $shell\n"
+printf "${dscolor}${dslogo1}$USER@$host\n"
+printf "${dscolor}${dslogo2}OS     ${nc} $NAME\n"
+printf "${dscolor}${dslogo3}Kernel ${nc} $kernel\n"
+printf "${dscolor}${dslogo4}Uptime ${nc} $uptime\n"
+printf "${dscolor}${dslogo5}Shell  ${nc} $shell\n"
 
 if [ "$colorsoff" != 1 ]; then
-	printf "${dslogo[5]}\e[0;31m● \e[0;32m● \e[0;33m● \e[0;34m● \e[0;35m● \e[0;36m● \e[0;37m●\e[0m\n"
+	printf "${dslogo6}\033[0;31m● \033[0;32m● \033[0;33m● \033[0;34m● \033[0;35m● \033[0;36m● \033[0;37m●\033[0m\n"
 fi
