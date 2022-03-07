@@ -119,8 +119,8 @@ if [ "$colorsoff" = "" ]; then
 	colorsoff=0
 fi
 
-touch ~/.zfetchrc # If ~/.zfetchrc doesn't exist, /bin/sh as bash will just exit.
-. ~/.zfetchrc 2> /dev/null || . /etc/zfetchrc 2> /dev/null
+[ -e /etc/zfetchrc ] && . /etc/zfetchrc 2> /dev/null
+[ -e ~/.zfetchrc ] && . ~/.zfetchrc 2> /dev/null
 
 # command line parameters
 if [ "$arg" = "" ]; then
