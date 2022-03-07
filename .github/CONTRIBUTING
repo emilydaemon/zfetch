@@ -1,0 +1,9 @@
+zfetch contribution guidelines:
+
+Thank you for wanting to help the development of zfetch! However, we do have
+some guidelines that you must follow in order for your pull requests to be
+accepted.
+
+1. Your additions must be POSIX compatible.
+
+2. Your additions must pass shellcheck.
