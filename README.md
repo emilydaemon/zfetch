@@ -1,4 +1,5 @@
 # zfetch 📜
+![](https://raw.githubusercontent.com/jornmann/zfetch/img/zfetchscrot.png)
 ## What's zfetch? 🤔
 zfetch is a fetch script used to quickly show system information in terminal.
 ## What does it show? 🤔
@@ -10,8 +11,6 @@ Currently it shows this information:
 - Machine uptime.
 - Terminal Shell.
 - 7 colored dots to identify terminal colors.
-## What does it look like? 🤔
-![](https://media.discordapp.net/attachments/932964227956756501/951039455769280542/unknown.png)
 ## Installation 🔧
 ### Arch Linux
 Arch users may install it from the AUR.
