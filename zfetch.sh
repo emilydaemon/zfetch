@@ -47,6 +47,13 @@ elif echo $NAME | grep -q 'Artix'; then
 	dslogo4=" /_-'_\\  "
 	dslogo5="         "
 	dslogo6="         "
+elif echo $NAME | grep -q 'Zorin'; then
+	dslogo1="  ____   "
+	dslogo2=" '    '  "
+	dslogo3="</'  ./> "
+	dslogo4=" .____.  "
+	dslogo5="         "
+	dslogo6="         "
 elif echo $NAME | grep -q 'Gentoo'; then
 	dscolor="\033[0;35m" # purple
 	dslogo1="         "
