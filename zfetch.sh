@@ -48,12 +48,13 @@ elif echo $NAME | grep -q 'Artix'; then
 	dslogo5="         "
 	dslogo6="         "
 elif echo $NAME | grep -q 'Zorin'; then
-	dslogo1="  ____   "
-	dslogo2=" '    '  "
-	dslogo3="</'  ./> "
-	dslogo4=" .____.  "
-	dslogo5="         "
-	dslogo6="         "
+	dscolor="\033[0;36m" # cyan
+	dslogo1="  _____  "
+	dslogo2=" '     ' "
+	dslogo3=" ###/ /# "
+	dslogo4="<##/ /##>"
+	dslogo5=" #/ /### "
+	dslogo6=" ._____. "
 elif echo $NAME | grep -q 'Gentoo'; then
 	dscolor="\033[0;35m" # purple
 	dslogo1="         "
