@@ -71,6 +71,22 @@ elif echo $NAME | grep -q 'Debian'; then
 	dslogo4="  '-_    "
 	dslogo5="         "
 	dslogo6="         "
+elif echo $NAME | grep -q 'Ubuntu'; then
+	dscolor="\033[0;31m" # red
+	dslogo1="      . ..."
+	dslogo2="  .c;;::;,."
+	dslogo3=".'dk.    ;c."
+	dslogo4=".'dk.    .."
+	dslogo5="  .:'...,c'"
+	dslogo6="        :O:"
+elif echo $NAME | grep -q 'Manjaro'; then
+	dscolor="\033[0;32m" # green
+	dslogo1="ccccccc,.ccc"
+	dslogo2="cccc:::'.ccc"
+	dslogo3="ccc..,,..ccc"
+	dslogo4="ccc.,cc,.ccc"
+	dslogo5="ccc.,cc,.ccc"
+	dslogo6="ccc.,cc,.ccc"
 elif echo $NAME | grep -q 'donut'; then
 	dscolor="\033[0;36m" # red
 	dslogo1="   \$\$\$    "
