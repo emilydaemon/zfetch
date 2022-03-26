@@ -144,7 +144,7 @@ fi
 
 host=$(cat /proc/sys/kernel/hostname)
 kernel=$(sed "s/version // ; s/ (.*//" /proc/version)
-uptime=$(uptime -p | sed "s/up //")
+uptime=$(uptime -p 2>/dev/null | sed "s/up //")
 shell=$(printf "$SHELL" | sed "s/\/bin\///" | sed "s/\/usr//")
 
 printf "${dscolor}${dslogo1}$USER@$host\n"
