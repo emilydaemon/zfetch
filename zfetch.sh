@@ -140,36 +140,11 @@ elif [ "$arg" = "nofetch" ]; then
 	exit
 fi
 
-# if no procps uptime command
-procuptime () {
-        s=$(cat /proc/uptime | awk '{print $1}' | sed "s/\..*//")
-        d=$((s / 86400))
-        s=$((s - d * 86400))
-        h=$((s / 3600))
-        s=$((s - h * 3600))
-        m=$((s / 60))
-        s=$((s - m * 60))
-
-        if [[ d -gt 0 || h -gt 0 || m -gt 0 ]]; then
-                [[ d -gt 0 ]] && printf "$d day"
-                [[ d -gt 1 ]] && printf "s"
-                [[ d -gt 0 && ((h -gt 0 || m -gt 0)) ]] && printf ", "
-                [[ h -gt 0 ]] && printf "$h hour"
-                [[ h -gt 1 ]] && printf "s"
-                [[ h -gt 0 && m -gt 0 ]] && printf ", "
-                [[ m -gt 0 ]] && printf "$m minute"
-                [[ m -gt 1 ]] && printf "s"
-        else
-                printf "$s second"
-                [[ s -gt 1 ]] && printf "s"
-        fi
-}
-
 # the meat and potatoes, actual fetch
 
 host=$(cat /proc/sys/kernel/hostname)
 kernel=$(sed "s/version // ; s/ (.*//" /proc/version)
-uptime=$(echo $(uptime -p 2>/dev/null || procuptime) | sed "s/up //")
+uptime=$(uptime -p 2>/dev/null | sed "s/up //")
 shell=$(printf "$SHELL" | sed "s/\/bin\///" | sed "s/\/usr//")
 
 printf "${dscolor}${dslogo1}$USER@$host\n"
